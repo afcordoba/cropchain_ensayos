@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8">
+<title>Intanet AGEIA</title>
+
+
+</head>
+
+<body>
+	<div th:replace="header"></div>
+	<div class="container">
+		<br> <br>
+		<div th:if="${list.isEmpty()}">
+			<h2>No hay Denunciantes por el momento</h2>
+		</div>
+		<div th:if="${!list.isEmpty()}">
+			<h3>Listado Denunciantes</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">Edad</th>
+						<th scope="col">Estado Civil</th>
+						<th scope="col">DNI</th>
+						<th scope="col">Sexo</th>
+						<th scope="col">Dirección</th>
+						<th scope="col">Ciudad</th>
+						<th scope="col">Provincia</th>
+						<th scope="col">País</th>
+						<th scope="col"><center><i class="material-icons">edit</i></center></th>
+						<th scope="col"><center><i class="material-icons">pageview</i></center></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr scope="row" th:each="denunciante : ${list}">
+						<td th:text="${denunciante.nombre}" />
+						<td th:text="${denunciante.apellido}" />
+						<td th:text="${denunciante.edad}" />
+						<td th:text="${denunciante.estadoCivil}" />
+						<td th:text="${denunciante.dni}" />
+						<td th:text="${denunciante.sexo}" />
+						<td th:text="${denunciante.iddomicilio.direccion}" />
+						<td th:text="${denunciante.iddomicilio.ciudad}" />
+						<td th:text="${denunciante.iddomicilio.provincia}" />
+						<td th:text="${denunciante.iddomicilio.pais}" />
+						<td><a class="waves-effect waves-light btn">Editar<i
+								class="material-icons left">cloud</i>button
+						</a></td>
+						<td><a class="waves-effect waves-light btn">Detalle<i
+								class="material-icons left">cloud</i>button
+						</a></td>
+					</tr>
+				</tbody>
+			</table>
+				<ul class="pagination">
+					<li class="disabled">
+					<a href="#!"><i class="material-icons">chevron_left</i></a></li>
+					<li class="active"><a href="#!">1</a></li>
+					<li class="waves-effect"><a href="#!">2</a></li>
+					<li class="waves-effect"><a href="#!">3</a></li>
+					<li class="waves-effect"><a href="#!">4</a></li>
+					<li class="waves-effect"><a href="#!">5</a></li>
+					<li class="waves-effect"><a href="#!"><i
+							class="material-icons">chevron_right</i></a></li>
+				</ul>
+
+		</div>
+		<br>
+	</div>
+	<div th:replace="footer"></div>
+</body>
+
+
+
+
+</html>

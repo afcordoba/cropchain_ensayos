@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Denuncia</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div th:replace="header"></div>
+	<div class="container">
+		<br>
+		<h3>Registro de Usuarios GDMSEEDS</h3>
+		<h6>Para la gestión Global de Productos</h6>
+		<br> <br>
+		<div class="divider"></div>
+		<br>
+		<h5>Datos personales</h5>
+		<div class="divider"></div>
+		<div class="row">
+			<form action="#" th:action="@{/saveDenuncia}" th:object="${bean}"
+				class="col s12" method="post">
+				<div class="row">
+					<div class="input-field col s6">
+						<input placeholder="Ingrese su nombre" th:field="*{nombre}"
+							id="first_name" type="text" class="validate"> <label
+							for="first_name">Nombre</label>
+					</div>
+					<div class="input-field col s6">
+						<input placeholder="Ingrese su apellido" id="apellido" type="text"
+							th:field="*{apellido}" class="validate"> <label
+							for="apellido">Apellito</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s6">
+						<input placeholder="Ingrese DNI sin ." th:field="*{dni}" id="dni"
+							type="text" class="validate"> <label for="dni">DNI</label>
+					</div>
+
+					<div class="input-field col s6">
+						<select th:field="*{sexo}">
+							<option value="" disabled selected>Elejir Sexo</option>
+							<option value="masculino">Masculino</option>
+							<option value="femenino">Femenino</option>
+							<option value="otros">Otros</option>
+						</select> <label>Sexo</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s6">
+						<input placeholder="Ingrese su edad" th:field="*{edad}" id="edad"
+							type="text" class="validate"> <label for="edad">Edad</label>
+					</div>
+
+					<div class="input-field col s6">
+						<select th:field="*{estadoCivil}">
+							<option value="" disabled selected>Elejir Estado Civil</option>
+							<option value="soltera/o">Soltera/o</option>
+							<option value="divorciada/o">Divorciada/o</option>
+							<option value="casada/o">Casada/o</option>
+						</select> <label>Estado Civil</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s6">
+						<input placeholder="Ingrese teléfono o Celular"
+							th:field="*{telefono}" id="telefono" type="text" class="validate">
+						<label for="telefono">Tel.o Cel.</label>
+					</div>
+
+					<div class="input-field col s6">
+						<input th:field="*{fecha_nacimiento}" id="fecha_nacimiento"
+							type="text" class="datepicker"> <label for="telefono">Fecha
+							Nacimiento</label>
+
+					</div>
+				</div>
+				<h5>Información</h5>
+				<div class="divider"></div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input placeholder="Ingrese Email" th:field="*{email}" id="email"
+							type="email" class="validate"> <label for="email">Email</label>
+					</div>
+					<div class="input-field col s6">
+						<input placeholder="Si/No" th:field="*{conoceAlPerpretador}"
+							id="conoceAlPerpretador" type="text" class="validate"> <label
+							for="conoceAlPerpretador">Conoce al perpetrador</label>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input placeholder="Si/No" th:field="*{recibioAsesoramiento}"
+							id="recibioAsesoramiento" type="text"> <label
+							for="asistencia">Se le brindó Asesoramiento</label>
+					</div>
+
+					<div class="input-field col s6">
+						<input placeholder="Abogado,Psicólogo,Otro..."
+							th:field="*{recibioAsesoramiento}" id="recibioAsesoramiento"
+							type="text"> <label for="asistencia">Recibió
+							Asistencia Profesional</label>
+					</div>
+				</div>
+				<div class="row">
+					<!-- DOMICILIO VICTIMA -->
+					<h5>Sección Domicilio</h5>
+					<div class="divider"></div>
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="Ingrese domicilio" th:field="*{direccion}"
+								id="direccion" type="text" class="validate"> <label
+								for="direccion">Direccion</label>
+						</div>
+						<div class="input-field col s6">
+							<input placeholder="Ingrese departamento" id="departamento"
+								type="text" th:field="*{departamento}"> <label
+								for="departamento">Departamento</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Piso" th:field="*{piso}" id="piso"
+								type="text"> <label for="piso">Piso</label>
+						</div>
+
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Ciudad" th:field="*{ciudad}"
+								id="ciudad" type="text"> <label for="ciudad">Ciudad</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Provincia" th:field="*{provincia}"
+								id="provincia" type="text"> <label for="provincia">Provincia</label>
+						</div>
+
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Pais" th:field="*{pais}" id="pais"
+								type="text"> <label for="pais">Pais</label>
+						</div>
+					</div>
+
+					<!-- VICTIMARIO -->
+
+					<h5>Sección Victimario</h5>
+					<br> <br>
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="Nombre Victimario"
+								th:field="*{nombreVictimario}" id="nombre_v" type="text"
+								class="validate"> <label for="nombre_v">Nombre</label>
+						</div>
+						<div class="input-field col s6">
+							<input placeholder="Ingrese apellido" id="apellido2" type="text"
+								th:field="*{apellidoVictimario}"> <label for="apellido2">Apellido</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<select th:field="*{tipo_documentoVictimario}">
+								<option value="dni">DNI</option>
+								<option value="lc">LC</option>
+								<option value="le">LE</option>
+							</select> <label>Tipo de Documento</label>
+						</div>
+
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Número Documento"
+								th:field="*{dniVictimario}" id="dni_v" type="text"> <label
+								for="dni_v">Número Documento</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<select th:field="*{estadoCivilVictimario}">
+								<option value="" disabled selected>Elejir Estado Civil</option>
+								<option value="soltera/o">Soltera/o</option>
+								<option value="divorciada/o">Divorciada/o</option>
+								<option value="casada/o">Casada/o</option>
+							</select> <label>Estado Civil</label>
+						</div>
+
+						<div class="input-field col s6">
+							<input placeholder="Algún parentezco"
+								th:field="*{parentescoVictimario}" id="parentesco" type="text">
+							<label for="pais">Parentesco</label>
+						</div>
+					</div>
+
+					<!-- DOMICILIO VICTIMARIO -->
+					<h5>Domicilio Victimario</h5>
+					<br> <br>
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="Ingrese domicilio"
+								th:field="*{direccionVictimario}" id="direccion_2" type="text"
+								class="validate"> <label for="direccion_2">Direccion</label>
+						</div>
+						<div class="input-field col s6">
+							<input placeholder="Ingrese departamento" id="departamento2"
+								type="text" th:field="*{departamentoVictimario}"> <label
+								for="departamento2">Departamento</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Piso" th:field="*{pisoVictimario}"
+								id="piso2" type="text"> <label for="piso2">Piso</label>
+						</div>
+
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Ciudad"
+								th:field="*{ciudadVictimario}" id="ciudad2" type="text">
+							<label for="ciudad2">Ciudad</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Provincia"
+								th:field="*{provinciaVictimario}" id="provincia2" type="text">
+							<label for="provincia2">Provincia</label>
+						</div>
+
+						<div class="input-field col s6">
+							<input placeholder="Ingrese Pais" th:field="*{paisVictimario}"
+								id="pais2" type="text"> <label for="pais2">Pais</label>
+						</div>
+					</div>
+				</div>
+				<br>
+			<button type="submit" class="btn btn-success">Registrar</button>
+			</form>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
+
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.datepicker');
+			var instances = M.Datepicker.init(elems, options);
+		});
+
+		// Or with jQuery
+
+		$(document).ready(function() {
+			$('.datepicker').datepicker();
+		});
+	</script>
+
+
+	<script>
+		(function($) {
+
+			$(function() {
+
+				// Plugin initialization
+
+				$('select').not('.disabled').formSelect();
+
+			});
+
+		})(jQuery); // end of jQuery name space
+	</script>
+
+
+</body>
+<div th:replace="footer"></div>
+</html>

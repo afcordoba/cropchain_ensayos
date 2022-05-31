@@ -1,0 +1,40 @@
+<div class="container">
+
+<form action="#" class="col s12" method="post">
+	<div class="row">
+		<div class="input-field col s6">
+			<input placeholder="Ingrese domicilio" th:field="*{direccion}"
+				id="direccion" type="text" class="validate"> <label
+				for="direccion">Direccion</label>
+		</div>
+		<div class="input-field col s6">
+			<input placeholder="Ingrese departamento" id="departamento"
+				type="text" th:field="*{departamento}"> <label
+				for="departamento">Departamento</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Piso" th:field="*{piso}" id="piso" type="text"> <label for="piso">Piso</label>
+		</div>
+
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Ciudad" th:field="*{ciudad}" id="ciudad"
+				type="text"> <label for="ciudad">Ciudad</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Provincia" th:field="*{provincia}" id="provincia"
+				type="text"> <label for="provincia">Provincia</label>
+		</div>
+
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Pais" th:field="*{pais}" id="pais"
+				type="text"> <label for="pais">Pais</label>
+		</div>
+	</div>
+</form>
+</div>

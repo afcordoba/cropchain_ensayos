@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Denuncias</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<style>
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+</style>
+<body>
+	<div th:replace="header"></div>
+	<div class="container">
+		<br> <br>
+		<div th:if="${list.isEmpty()}">
+			<h2>No hay Denuncias</h2>
+		</div>
+		<div th:if="${!list.isEmpty()}">
+			<h3>Listado Denuncias</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Denunciante</th>
+						<th scope="col">Fecha Dencuncia</th>
+						<th scope="col">Domicilio</th>
+						<th scope="col">Ciudad</th>
+						<th scope="col">Provincia</th>
+						<th scope="col">País</th>
+						<th scope="col">Estado Denuncia</th>
+						<th scope="col">Victimario</th>
+						<th scope="col"><center>
+								<i class="material-icons">edit</i>
+							</center></th>
+						<th scope="col"><center>
+								<i class="material-icons">pageview</i>
+							</center></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr scope="row" th:each="denuncia : ${list}">
+						<td th:text="${denuncia.iddenunciante.nombre}" />
+						<td th:text="${denuncia.fechaDenuncia}" />
+						<td th:text="${denuncia.iddomicilio.direccion}" />
+						<td th:text="${denuncia.iddomicilio.ciudad}" />
+						<td th:text="${denuncia.iddomicilio.provincia}" />
+						<td th:text="${denuncia.iddomicilio.pais}" />
+						<td th:text="${denuncia.codigo.valorEstado}" />
+						<td th:text="${denuncia.idVictimario.nombre}" />
+						<td><a class="waves-effect waves-light btn">Editar<i
+								class="material-icons left">cloud</i>button
+						</a></td>
+						<td><a class="waves-effect waves-light btn">Detalle<i
+								class="material-icons left">cloud</i>button
+						</a></td>
+					</tr>
+				</tbody>
+			</table>
+				<ul class="pagination">
+					<li class="disabled">
+					<a href="#!"><i class="material-icons">chevron_left</i></a></li>
+					<li class="active"><a href="#!">1</a></li>
+					<li class="waves-effect"><a href="#!">2</a></li>
+					<li class="waves-effect"><a href="#!">3</a></li>
+					<li class="waves-effect"><a href="#!">4</a></li>
+					<li class="waves-effect"><a href="#!">5</a></li>
+					<li class="waves-effect"><a href="#!"><i
+							class="material-icons">chevron_right</i></a></li>
+				</ul>
+
+		</div>
+		<br>
+	</div>
+	<div th:replace="footer"></div>
+</body>
+
+
+
+
+</html>

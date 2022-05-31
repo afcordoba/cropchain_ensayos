@@ -1,0 +1,41 @@
+<div class="container">
+<form action="#"   class="col s12" method="post">
+	<div class="row">
+		<div class="input-field col s6">
+			<input placeholder="Ingrese domicilio" th:field="*{direccionVictimario}"
+				id="direccion_2" type="text" class="validate"> <label
+				for="direccion_2">Direccion</label>
+		</div>
+		<div class="input-field col s6">
+			<input placeholder="Ingrese departamento" id="departamento2"
+				type="text" th:field="*{departamentoVictimario}"> <label
+				for="departamento2">Departamento</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Piso" th:field="*{pisoVictimario}" id="piso2"
+				type="text"> <label for="piso2">Piso</label>
+		</div>
+
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Ciudad" th:field="*{ciudadVictimario}" id="ciudad2"
+				type="text"> <label for="ciudad2">Ciudad</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Provincia" th:field="*{provinciaVictimario}" id="provincia2"
+				type="text"> <label for="provincia2">Provincia</label>
+		</div>
+
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Pais" th:field="*{paisVictimario}" id="pais2"
+				type="text"> <label for="pais2">Pais</label>
+		</div>
+	</div>
+<button type="submit" class="btn btn-success">Registrar</button>
+</form>
+</div>

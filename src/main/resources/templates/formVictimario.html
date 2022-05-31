@@ -1,0 +1,47 @@
+<div class="container">
+<form action="#" class="col s12" method="post">
+	<div class="row">
+		<div class="input-field col s6">
+			<input placeholder="Nombre Victimario" th:field="*{nombreVictimario}"
+				id="nombre_v" type="text" class="validate"> <label
+				for="nombre_v">Nombre</label>
+		</div>
+		<div class="input-field col s6">
+			<input placeholder="Ingrese apellido" id="apellido2"
+				type="text" th:field="*{victimario.apellido}"> <label
+				for="apellido2">Apellido</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field col s6">
+						<select th:field="*{tipo_documentoVictimario}">
+							<option value="dni">DNI</option>
+							<option value="lc">LC</option>
+							<option value="le">LE</option>
+						</select> <label>Tipo de Documento</label>
+		</div>
+
+		<div class="input-field col s6">
+			<input placeholder="Ingrese Número Documento" th:field="*{dniVictimario}" id="dni_v"
+				type="text"> <label for="dni_v">Número Documento</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field col s6">
+						<select th:field="*{estadoCivilVictimario}">
+							<option value="" disabled selected>Elejir Estado Civil</option>
+							<option value="soltera/o">Soltera/o</option>
+							<option value="divorciada/o">Divorciada/o</option>
+							<option value="casada/o">Casada/o</option>
+						</select> <label>Estado Civil</label>
+					</div>
+
+		<div class="input-field col s6">
+			<input placeholder="Algún parentezco" th:field="*{parentescoVictimario}" id="parentesco"
+				type="text"> <label for="pais">Parentesco</label>
+		</div>
+	</div>
+</form>
+</div>

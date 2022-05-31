@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Denunciantes</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div th:replace="../fragments/header :: header">&nbsp;</div>
+	<div class="container">
+		<br>
+		<div>
+			<a href="saveDenunciante" class="btn btn-primary">Agregar </a>
+		</div>
+		
+			<div th:if="${list.isEmpty()}">
+				<h2>No hay Denunciantes</h2>
+			</div>	
+			<div th:if="${!list.isEmpty()}">
+				<table class="table">
+				 <thead>
+				 	<tr>
+				 		<th>Apellido</th>
+				 		<th>Nombre</th>
+				 		<th>DNI</th>
+				 		<th>Sexo</th>
+				 		<th>Estado Civil</th>
+				 	</tr>
+				 </thead>
+				 <tbody>
+				 	<tr th:each="denunciante : ${list}">
+				 		<td th:text="${denunciante.apellido}"/>
+				 		<td th:text="${denunciante.nombre}"/>
+				 		<td th:text="${denunciante.dni}"/>
+				 		<td th:text="${denunciante.sexo}"/>
+				 		<td th:text="${denunciante.estado_civil}"/>
+				 	</tr>
+				 </tbody>
+				</table>
+			</div>
+		</div>
+	<div th:replace="../fragments/footer :: footer">&nbsp;</div>
+</body>
+</html>
